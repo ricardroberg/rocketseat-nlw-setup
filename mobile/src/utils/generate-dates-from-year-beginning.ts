@@ -4,7 +4,7 @@ export function generateDatesFromYearBeginning() {
   const firstDayOfTheYear = dayjs().startOf("year");
   const today = new Date();
 
-  const dates = [];
+  let dates = [];
   let compareDate = firstDayOfTheYear;
 
   while (compareDate.isBefore(today)) {

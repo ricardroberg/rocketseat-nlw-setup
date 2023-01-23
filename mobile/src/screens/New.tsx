@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { BackButton } from "../components/BackButton";
-import Checkbox from "../components/Checkbox";
+import { Checkbox}  from "../components/Checkbox";
 import colors from "tailwindcss/colors";
 import { api } from "../lib/axios";
 

@@ -13,7 +13,7 @@ interface CheckboxProps extends TouchableOpacityProps {
   title: string;
 }
 
-export default function Checkbox({
+export function Checkbox({
   title,
   checked = false,
   ...rest

@@ -9,7 +9,7 @@ import { generateProgressPercentage } from "../utils/generate-progress-percentag
 
 import { BackButton } from "../components/BackButton";
 import ProgressBar from "../components/ProgressBar";
-import Checkbox from "../components/Checkbox";
+import { Checkbox}  from "../components/Checkbox";
 import { Loading } from "../components/Loading";
 import HabitsEmpty from "../components/HabitsEmpty";
 
