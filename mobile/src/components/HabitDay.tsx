@@ -17,7 +17,7 @@ export const DAY_SIZE =
   Dimensions.get("screen").width / WEEK_DAYS - (SCREEN_HORIZONTAL_PADDING + 5);
 
 interface HabitDayProps extends TouchableOpacityProps {
-  amountOdHabits?: number;
+  amountOfHabits?: number;
   amountCompleted?: number;
   date: Date;
 }
@@ -25,12 +25,12 @@ interface HabitDayProps extends TouchableOpacityProps {
 export function HabitDay({
   date,
   amountCompleted = 0,
-  amountOdHabits = 0,
+  amountOfHabits = 0,
   ...rest
 }: HabitDayProps) {
   const amountAccomplishedPercentage =
-    amountOdHabits > 0
-      ? generateProgressPercentage(amountOdHabits, amountCompleted)
+    amountOfHabits > 0
+      ? generateProgressPercentage(amountOfHabits, amountCompleted)
       : 0;
   const today = dayjs().startOf("day").toDate();
   const isCurrentDay = dayjs(date).isSame(today);
@@ -39,19 +39,19 @@ export function HabitDay({
     <TouchableOpacity
       className={clsx("rounded-lg border-2 m-1", {
         ["bg-zinc-900 border-zinc-800"]: amountAccomplishedPercentage === 0,
-        ["bg-violet-900 border-violet-700"]:
+        ["bg-violet-500 border-violet-700"]:
           amountAccomplishedPercentage > 0 && amountAccomplishedPercentage < 20,
-        ["bg-violet-800 border-violet-600"]:
-          amountAccomplishedPercentage > 20 &&
+        ["bg-violet-600 border-violet-600"]:
+          amountAccomplishedPercentage >= 20 &&
           amountAccomplishedPercentage < 40,
         ["bg-violet-700 border-violet-500"]:
-          amountAccomplishedPercentage > 40 &&
+          amountAccomplishedPercentage >= 40 &&
           amountAccomplishedPercentage < 60,
-        ["bg-violet-600 border-violet-500"]:
-          amountAccomplishedPercentage > 60 &&
+        ["bg-violet-800 border-violet-500"]:
+          amountAccomplishedPercentage >= 60 &&
           amountAccomplishedPercentage < 80,
-        ["bg-violet-500 border-violet-400"]: amountAccomplishedPercentage > 80,
-        ["border-white border-4"]: isCurrentDay
+        ["bg-violet-900 border-violet-400"]: amountAccomplishedPercentage >= 80,
+        ["border-white border-4"]: isCurrentDay,
       })}
       style={{ width: DAY_SIZE, height: DAY_SIZE }}
       activeOpacity={0.7}

@@ -8,8 +8,8 @@ import {
   Alert,
 } from "react-native";
 import { Feather } from "@expo/vector-icons";
-import { BackButton } from "../componentes/BackButton";
-import Checkbox from "../componentes/Checkbox";
+import { BackButton } from "../components/BackButton";
+import Checkbox from "../components/Checkbox";
 import colors from "tailwindcss/colors";
 import { api } from "../lib/axios";
 
@@ -40,7 +40,7 @@ export function New() {
   async function handleCreateNewHabit() {
     try {
       if (!title.trim() || weekDays.length === 0) {
-        Alert.alert(
+        return Alert.alert(
           "Novo hábito",
           "Informe o nome do hábito e a periodicidade"
         );
@@ -50,7 +50,6 @@ export function New() {
       setTitle("");
       setWeekDays([]);
       Alert.alert("Novo hábito", "Hábito criado com sucesso.");
-
     } catch (error) {
       console.log(error);
       Alert.alert("Ops", "Não foi possível criar o novo hávito");
